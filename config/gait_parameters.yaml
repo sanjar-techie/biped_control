@@ -1,0 +1,24 @@
+gait:
+  # Temporal parameters
+  step_duration: 1.0         # Duration of single step (seconds)
+  double_support_ratio: 0.1  # Ratio of double support phase
+  
+  # Spatial parameters
+  step_height: 5.0           # Maximum foot height during swing (cm)
+  step_length: 5.0          # Forward step length (cm)
+  
+  # Balance parameters
+  com_height: 24.0          # Desired COM height (cm)
+  com_forward_offset: 0.0   # Desired COM forward offset (cm)
+  
+  # Optimization weights
+  weights:
+    com_tracking: 300.0     # Weight for COM position tracking
+    foot_clearance: 100.0   # Weight for foot clearance
+    torso_stability: 100.0  # Weight for torso orientation
+    energy: 50.0           # Weight for energy minimization
+
+  # Stability margins
+  stability:
+    min_com_margin: 2.0    # Minimum COM distance from support edge (cm)
+    max_torso_tilt: 0.2    # Maximum allowed torso tilt (rad)

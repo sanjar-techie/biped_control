@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch everything needed for the biped -->
+    
+    <!-- Start motor manager -->
+    <include file="$(find biped_control)/launch/motor_manager.launch" />
+    
+    <!-- Start controllers -->
+    <include file="$(find biped_control)/launch/start_controllers.launch" />
+    
+    <!-- Start trajectory commander -->
+    <include file="$(find biped_control)/launch/trajectory_commander.launch" />
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="trajectory_commander"
+          pkg="biped_control"
+          type="trajectory_node"
+          output="screen">
+        <rosparam>
+            update_rate: 100
+            trajectory_timeout: 30.0
+        </rosparam>
+    </node>
+</launch>

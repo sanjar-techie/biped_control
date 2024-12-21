@@ -1,0 +1,39 @@
+biped:
+  # Initial joint angles (in radians)
+  alpha: [
+    0.12783173232380343,  # joint 1
+    -0.8078965482864378,  # joint 2
+    0.7414240474780599,   # joint 3
+    0.5164401985881659,   # joint 4
+    -0.9306150113172891,  # joint 5
+    0.36304211979960177   # joint 6
+  ]
+
+  # Physical parameters
+  com_displacement_from_joint: 1.35  # Center of mass displacement from joint (cm)
+  foot_length: 6                     # Foot length (cm)
+
+  # Link lengths (cm)
+  geometry: [
+    4.5,  # Torso length
+    9.5,  # Thigh length
+    7.0,  # Calf length
+    4.0   # Foot height
+  ]
+
+  # Additional parameters for C++ implementation
+  motor_limits:
+    velocity_limit: 1.5       # Maximum joint velocity (rad/s)
+    acceleration_limit: 2.0   # Maximum joint acceleration (rad/s^2)
+    torque_limit: 1.0        # Maximum joint torque (Nm)
+
+  # Control parameters
+  control:
+    position_gain: 100.0     # P gain for position control
+    velocity_gain: 10.0      # D gain for velocity damping
+    update_rate: 100         # Control loop rate (Hz)
+
+  # Safety parameters
+  safety:
+    max_joint_error: 0.1     # Maximum allowed joint position error (rad)
+    emergency_stop_torque: 0.5  # Torque limit during emergency stop (Nm)

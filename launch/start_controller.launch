@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Load controller configuration -->
+    <rosparam file="$(find biped_control)/config/biped_controllers.yaml" command="load" />
+    
+    <!-- Spawn individual motor controllers -->
+    <include file="$(find biped_control)/launch/single_motor_spawn.launch" >
+        <arg name="motor_id" value="1" />
+    </include>
+    <include file="$(find biped_control)/launch/single_motor_spawn.launch" >
+        <arg name="motor_id" value="2" />
+    </include>
+    <include file="$(find biped_control)/launch/single_motor_spawn.launch" >
+        <arg name="motor_id" value="3" />
+    </include>
+    <include file="$(find biped_control)/launch/single_motor_spawn.launch" >
+        <arg name="motor_id" value="4" />
+    </include>
+    <include file="$(find biped_control)/launch/single_motor_spawn.launch" >
+        <arg name="motor_id" value="5" />
+    </include>
+    <include file="$(find biped_control)/launch/single_motor_spawn.launch" >
+        <arg name="motor_id" value="6" />
+    </include>
+
+    <!-- Spawn trajectory controller -->
+    <node name="biped_trajectory_controller_spawner"
+          pkg="dynamixel_controllers"
+          type="controller_spawner.py"
+          args="--manager=biped_manager
+                --type=meta
+                biped_joint_trajectory_action_controller
+                biped_position_controller_1
+                biped_position_controller_2
+                biped_position_controller_3
+                biped_position_controller_4
+                biped_position_controller_5
+                biped_position_controller_6"
+          output="screen" />
+</launch>

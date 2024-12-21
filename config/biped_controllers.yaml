@@ -1,0 +1,70 @@
+# Common controller settings
+controller_defaults: &controller_defaults
+  controller:
+    package: dynamixel_controllers
+    module: joint_position_controller
+    type: JointPositionController
+  joint_speed: 1.5
+  joint_compliance_margin: 1
+  joint_compliance_slope: 8
+
+# Motor defaults
+motor_defaults: &motor_defaults
+  init: 512
+  min: 0
+  max: 1024
+  bias: 0.0
+
+# Individual joint controllers
+biped_position_controller_1:
+  <<: *controller_defaults
+  joint_name: joint_1
+  motor:
+    <<: *motor_defaults
+    id: 1
+
+biped_position_controller_2:
+  <<: *controller_defaults
+  joint_name: joint_2
+  motor:
+    <<: *motor_defaults
+    id: 2
+
+biped_position_controller_3:
+  <<: *controller_defaults
+  joint_name: joint_3
+  motor:
+    <<: *motor_defaults
+    id: 3
+
+biped_position_controller_4:
+  <<: *controller_defaults
+  joint_name: joint_4
+  motor:
+    <<: *motor_defaults
+    id: 4
+
+biped_position_controller_5:
+  <<: *controller_defaults
+  joint_name: joint_5
+  motor:
+    <<: *motor_defaults
+    id: 5
+
+biped_position_controller_6:
+  <<: *controller_defaults
+  joint_name: joint_6
+  motor:
+    <<: *motor_defaults
+    id: 6
+
+# Trajectory controller
+biped_joint_trajectory_action_controller:
+  controller:
+    package: dynamixel_controllers
+    module: joint_trajectory_action_controller
+    type: JointTrajectoryActionController
+  joint_trajectory_action_node:
+    min_velocity: 0.5
+    constraints:
+      goal_time: 5.0
