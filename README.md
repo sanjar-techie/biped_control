@@ -15,3 +15,15 @@ The trajectory generation and control pipeline:
 ![Trajectory Generation Pipeline](images/trajectory_pipeline.jpg)
 
 
+## Quick Start
+```bash
+# Clone the repository
+cd ~/catkin_ws/src
+git clone https://github.com/yourusername/biped_control.git
+
+# Build
+cd ~/catkin_ws
+catkin build
+
+# Launch the robot control
+roslaunch biped_control biped_complete.launch
